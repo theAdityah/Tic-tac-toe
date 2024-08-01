@@ -1,4 +1,4 @@
- const board = document.getElementById('ticTacToeBoard');
+        const board = document.getElementById('ticTacToeBoard');
         const cells = Array.from({ length: 9 }, (_, i) => {
             const cell = document.createElement('div');
             cell.className = 'cell';
@@ -9,6 +9,22 @@
 
         let currentPlayer = 'X';
         let boardState = Array(9).fill(null);
+
+        // Event listeners for choosing X or O
+        document.getElementById('chooseX').addEventListener('click', () => startGame('X'));
+        document.getElementById('chooseO').addEventListener('click', () => startGame('O'));
+
+        function startGame(player) {
+            currentPlayer = player;
+            document.querySelector('.choice').style.display = 'none'; // Hide choice buttons
+            board.style.visibility = 'visible'; // Show the game board
+
+            // If user chooses O, AI makes a random move
+            if (currentPlayer === 'O') {
+                makeAiRandomMove();
+                currentPlayer = 'X'; // Switch to user's turn after AI's move
+            }
+        }
 
         function checkWinner(state) {
             const winPatterns = [
@@ -35,7 +51,7 @@
                 return;
             }
 
-            makeMove(index, 'X');
+            makeMove(index, currentPlayer);
             if (!checkWinner(boardState)) {
                 makeAiMove();
             }
@@ -52,6 +68,12 @@
                     resetGame();
                 }, 100);
             }
+        }
+
+        function makeAiRandomMove() {
+            const availableMoves = boardState.map((cell, index) => cell === null ? index : null).filter(index => index !== null);
+            const randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+            makeMove(randomMove, 'O');
         }
 
         function makeAiMove() {
@@ -89,6 +111,8 @@
             boardState = Array(9).fill(null);
             cells.forEach(cell => cell.textContent = '');
             currentPlayer = 'X';
+            board.style.visibility = 'hidden'; // Hide the board until a new game starts
+            document.querySelector('.choice').style.display = 'block'; // Show choice buttons again
         }
 
         cells.forEach(cell => cell.addEventListener('click', handleClick));
