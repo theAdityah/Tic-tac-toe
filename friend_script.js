@@ -1,4 +1,4 @@
-const board = document.getElementById('ticTacToeBoard');
+        const board = document.getElementById('ticTacToeBoard');
         const cells = Array.from({ length: 9 }, (_, i) => {
             const cell = document.createElement('div');
             cell.className = 'cell';
