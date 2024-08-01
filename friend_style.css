@@ -4,7 +4,7 @@ body {
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color:rgba(1,4,19,255);
         }
         #ticTacToeBoard {
             display: grid;
@@ -22,4 +22,10 @@ body {
             border: 1px solid #ccc;
             font-size: 24px;
             cursor: pointer;
+        }
+ .logo img {
+            border: 5px solid #324e66;
+        max-width: 60%;
+        height: auto;
+        margin-left: 20%;
         }
