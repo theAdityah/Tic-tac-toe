@@ -1,40 +1,42 @@
  body {
             font-family: Arial, sans-serif;
-            display: inline;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            display: block;
+            border: 5px solid rgba(127, 98, 23, 0.129);
+            
+           position: fixed;
+            height: 100vw;
             background-color: rgba(1,4,19,255);
         }
         #playButton {
-            margin-top: 25%;
-            margin-left: 50%;
-            padding: 10px 20px;
-            font-size: 18px;
+            margin: 25% 50% 0 46%;
+            font-size: 100%;
             cursor: pointer;
         }
         #popup {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 75%;
+            margin-left: 50%;
+            margin-bottom: 20px;
             transform: translate(-50%, -50%);
-            background-color: violet;
+            background-color: rgba(1,4,19,255);
             border: 1px solid #141313;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            
         }
         .popupButton {
             display: block;
             margin: 10px 0;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 100%;
             cursor: pointer;
         }
                 
+        .logo{
+            max-width: 100%;
+        }
         .logo img {
-        border: 5px solid #324e66;
-        max-width: 60%;
-        height: auto;
-        margin-left: 20%;
+            display: block;
+            border: 2px solid #324e66;
+            max-width: 100%;
+            height: auto;
         }
